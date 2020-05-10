@@ -1,0 +1,97 @@
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+body{
+	background-image: url('todo.png');
+	background-repeat: no-repeat;
+	background-position: left;
+	background-size: contain;	
+	background-attachment: fixed;
+
+}
+
+.insert{
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+
+}
+.container{
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2rem;
+	
+}
+.itemBox{
+	margin-top: 5px;
+}
+
+
+h1{
+	text-align: center;
+	margin-top: 20px;color: red;
+}
+
+.input,.btn{
+	margin-top: 10%;
+	padding: 15px;
+	font-size: 15px;
+	margin-right: 5px;
+	font-weight: bolder;border: 2px solid #09c1b0;
+
+}
+.input{
+
+	border-radius: 8px;
+	width: 20%;outline: none;
+}
+.btn{
+	border-radius: 10%;
+
+	color: red;
+	font-size: 15px;
+	height: 50px;
+	width: 45px;
+	outline: none;
+}
+.btn:hover , .edit:hover , .remove:hover{
+	background-color: #fff;
+	transition: 0.3s;	
+	border: 1px solid red;
+
+}
+.container{
+	margin-top: 10px;
+}
+.item,.edit, .remove{
+	padding: 15px;
+	font-size: 15px;
+	margin-right: 10px;
+	font-weight: bolder;
+	border-style: none;
+	outline: none;
+	
+}
+.edit{
+	border-radius: 8px;
+	width: 60px;background-color: #09c1b0;
+	height: 50px;
+
+}
+.remove{
+	border-radius: 8px;
+	width: 90px;background-color: #fa3e93;
+	height: 50px;
+}
+.item{
+	background-color: #fff;
+	border-bottom: 2px solid #09c1b0;
+	border-radius: 8px;
+}
+
