@@ -1,65 +1,76 @@
 const btn = document.querySelector('.btn')
 const container = document.querySelector('.container')
-var inputValue = document.querySelector('.input')
+let inputValue = document.querySelector('.input')
 
 
-class itemClass{
-	constructor(name){
+class itemClass {
+	constructor(name) {
 		this.createItem(name);
 	}
 
-	createItem(name){
-		var itemBox = document.createElement('div');
+	createItem(name) {
+
+
+		let itemBox = document.createElement('div');
 		itemBox.classList.add('itemBox');
-
-
-		var item = document.createElement('input');
+		let item = document.createElement('input');
 		item.type = "text";
 		item.disabled = true;
 		item.value = name
 		item.classList.add('item');
 
-		var edit = document.createElement('button');
+
+		let edit = document.createElement('button');
 		edit.innerHTML = 'Edit';
 		edit.classList.add('edit');
-		edit.addEventListener('click', _ => this.edit(item,name));
+		edit.addEventListener('click', _ => this.edit(item, name));
 
-		var remove = document.createElement('button');
+		let remove = document.createElement('button');
 		remove.innerHTML = 'Remove';
 		remove.classList.add('remove');
-		remove.addEventListener('click', _ => this.remove(itemBox,name));
+		remove.addEventListener('click', _ => this.remove(itemBox, name));
 
 		container.appendChild(itemBox);
 		itemBox.appendChild(item);
 		itemBox.appendChild(edit);
 		itemBox.appendChild(remove);
-		}
-	edit(item,name){
-		if(item.disabled == true){
+	}
+
+	edit(item, name) {
+		const editElem = item.nextElementSibling;
+		if (item.disabled == true) {
 			item.disabled = !item.disabled;
+			editElem.innerHTML = 'Update';
+			editElem.classList.remove('edit');
+			editElem.classList.add('update');
+
 		}
-		else{
+		else {
 			item.disabled = !item.disabled;
+			editElem.innerHTML = 'Edit';
+			editElem.classList.remove('update');
+			editElem.classList.add('edit');
+
 		}
 	}
-	remove(itemBox,name){
+	remove(itemBox, name) {
 		itemBox.parentNode.removeChild(itemBox);
 	}
 }
 
 btn.addEventListener('click', check);
-window.addEventListener('keydown', (e)=>{
-	if(e.which == 13){
+window.addEventListener('keydown', (e) => {
+	if (e.which == 13) {
 		check();
 	}
 });
- function check(){
- 	if(inputValue.value != ""){
- 			new itemClass(inputValue.value);;
- 			inputValue.value = ""
+function check() {
+	if (inputValue.value != "") {
+		new itemClass(inputValue.value);
+		inputValue.value = ""
 
- 	}
- }
+	}
+}
 
 
 
